@@ -1,16 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-
 export default function Forecast(props) {
     return (
-        <View style={styles.Space}>
+    <View style={styles.Space}>
         <Text>{props.main}</Text>
         <Text>{props.description}</Text>
         <View styles={styles.Row}> 
-        <Text>{props.temp} °C</Text>
-            <Text>{props.pressure} Pa</Text>
+        <Text>อุณหภูมิ {props.temp} °C</Text>
+            <Text>แรงดันอากาศ {props.pressure} Pa</Text>
+            <Text>ความเร็วลม {props.windspeed} m/s</Text>
+            <Text>พิกัดแสงอาทิตย์ {props.syssunset} </Text>
         </View>
     </View>
+
     )
 }
 const styles = StyleSheet.create({    
@@ -23,4 +25,5 @@ const styles = StyleSheet.create({
         justifyContent:'space-evenly',
         height:'40%'
     }
-})  
+})   
+  6  

@@ -12,7 +12,9 @@ export default function Weather(props) {
                     main: json.weather[0].main,
                     description: json.weather[0].description,
                     temp: json.main.temp,
-                    pressure: json.main.pressure
+                    pressure: json.main.pressure,
+                    windspeed: json.wind.speed,
+                    syssunset: json.sys.sunset
                 });
             })
             .catch((error) => {
@@ -26,10 +28,9 @@ export default function Weather(props) {
         temp: 0,
         pressure: 0
     })
-
     return (
         //แปลงข้อมูลเป็น props ให้ Forecast.js ทั้งหมด
-        <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}> 
+        <ImageBackground source={require('../gif.gif')} style={styles.backdrop}> 
             <View style={styles.BBlack}>
                 <Text style={styles.BText}>Zip Code</Text> 
                 <Text style={styles.BText}>{props.zipCode}</Text>
@@ -41,7 +42,7 @@ export default function Weather(props) {
    const styles = StyleSheet.create({    //กำหนด backdrop style 
         backdrop: {
             flexDirection: 'column',
-            width: '150%', //ใช้ภาพช่วง 150% 
+            width: '100%', //ใช้ภาพช่วง 100% 
             height:'100%'  //ใช้ขนาดรูปในแนวตั้ง
         },
         BText: {
